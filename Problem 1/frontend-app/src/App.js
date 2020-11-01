@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './App.css';
 
 const App = () => {
+
   const [lunchItems,setLunchItems] = useState([])
   const [msg ,setMsg] = useState("")
   const [msgClass,setMsgClass] = useState("")
@@ -11,27 +12,30 @@ const App = () => {
     setLunchItems(inputData)
     setMsg("")
     setMsgClass("")
-
   }
 
   const handleSubmit = (event) => {
       event.preventDefault()
       console.log(lunchItems)
       
-      var itemsArray = lunchItems
-      if(itemsArray.length == 0){
+      var itemsArray = lunchItems.split(",")
+      if(itemsArray.length === 0){
         setMsg("Please enter data first !!!")
         setMsgClass("danger")
+        console.log("length",itemsArray.length)
       }
-      else if(itemsArray.length <= 3 && itemsArray.length > 0){
+      else if(itemsArray.length <= 3){
         setMsg("Enjoy!!!")
         setMsgClass("success")
+        console.log("length",itemsArray.length)
       }else if(itemsArray.length === 4){
         setMsg("CareFull!!!")
         setMsgClass("warning")
+        console.log("length",itemsArray.length)
       }else if(itemsArray.length >= 5){
         setMsg("Too Much!!!")
         setMsgClass("danger")
+        console.log("length",itemsArray.length)
       }
      
   }
