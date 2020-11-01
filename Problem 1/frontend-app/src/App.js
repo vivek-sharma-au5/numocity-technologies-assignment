@@ -16,26 +16,24 @@ const App = () => {
 
   const handleSubmit = (event) => {
       event.preventDefault()
-      console.log(lunchItems)
+      
       
       var itemsArray = lunchItems.split(",")
-      if(itemsArray.length === 0){
+      console.log(itemsArray)
+      if(itemsArray[0] === ""){
         setMsg("Please enter data first !!!")
         setMsgClass("danger")
-        console.log("length",itemsArray.length)
       }
-      else if(itemsArray.length <= 3){
+      else if(itemsArray.length <= 3 && itemsArray[0] !== ""  ){
         setMsg("Enjoy!!!")
         setMsgClass("success")
-        console.log("length",itemsArray.length)
       }else if(itemsArray.length === 4){
         setMsg("CareFull!!!")
         setMsgClass("warning")
-        console.log("length",itemsArray.length)
       }else if(itemsArray.length >= 5){
         setMsg("Too Much!!!")
         setMsgClass("danger")
-        console.log("length",itemsArray.length)
+       
       }
      
   }
